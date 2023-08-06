@@ -7,6 +7,10 @@ resource "aws_instance" "myec2" {
   vpc_security_group_ids = [ aws_security_group.webserver-sg.id ]
 
   user_data = var.user_data
+
+  tags = {
+    "Name" = "webserver"
+  }
 }
 
 # Below block will create Security groups with ports 22, 80 and 443
