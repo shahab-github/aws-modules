@@ -18,7 +18,7 @@ resource "aws_internet_gateway" "igw" {
 
 resource "aws_subnet" "pub-sub" {
   vpc_id = aws_vpc.myvpc.id
-  cidr_block = ["192.168.1.0/24"]
+  cidr_block = "192.168.1.0/24"
   availability_zone = "us-east-1a"
 }
 
