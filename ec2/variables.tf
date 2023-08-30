@@ -19,3 +19,7 @@ variable "user_data" {
     sudo systemctl enable nginx
     EOF
 }
+
+variable "vpc_id" {
+  
+}

@@ -17,6 +17,7 @@ resource "aws_instance" "myec2" {
 resource "aws_security_group" "webserver-sg" {
     name = "my-web-sg"
     description = "SG for Web server"
+    vpc_id = var.vpc_id
 
     ingress {
         from_port   = 22
