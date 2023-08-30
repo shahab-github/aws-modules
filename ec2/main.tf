@@ -5,6 +5,7 @@ resource "aws_instance" "myec2" {
   instance_type = var.instance_type
   key_name = var.key_name
   vpc_security_group_ids = [ aws_security_group.webserver-sg.id ]
+  subnet_id = var.subnet_id
 
   user_data = var.user_data
 
