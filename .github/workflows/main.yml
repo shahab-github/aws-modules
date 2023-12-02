@@ -1,7 +1,6 @@
-name: Delete abandoned branches
+name: Repo cleanup (old PRs, branches and issues)
 
 on:
-  # Run daily at midnight
   schedule:
     - cron: "0 0 * * *"
 
@@ -9,21 +8,24 @@ on:
   workflow_dispatch:
 
 jobs:
-  cleanup_old_branches:
+  cleanup-repository:
     runs-on: ubuntu-latest
-    name: Satisfy my repo CDO
+
     steps:
-      - name: Delete those pesky dead branches
-        uses: phpdocker-io/github-actions-delete-abandoned-branches@v2
-        id: delete_stuff
+
+      # Mark issues and PRs with no activity as stale after a while, and close them after a while longer
+      - uses: actions/stale@v3
+        with:
+          stale-issue-message: 'Marking issue as stale'
+          stale-pr-message: 'Marking PR as stale'
+          stale-issue-label: 'stale'
+          stale-pr-label: 'stale'
+          days-before-stale: 30
+          days-before-close: 7
+
+      - uses: phpdocker-io/github-actions-delete-abandoned-branches@v2
         with:
           github_token: ${{ github.token }}
           last_commit_age_days: 100
-          ignore_branches: next-version,dont-deleteme
-          github_base_url: https://api.github.com
-
-          # Disable dry run and actually get stuff deleted
           dry_run: no
-
-      - name: Get output
-        run: "echo 'Deleted branches: ${{ steps.delete_stuff.outputs.deleted_branches }}'"
+          ignore_branches: test_prefix/one,test_prefix/two,test_prefix_ignored/one
