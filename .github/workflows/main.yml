@@ -26,6 +26,6 @@ jobs:
       - uses: phpdocker-io/github-actions-delete-abandoned-branches@v2
         with:
           github_token: ${{ secrets.mytoken }}
-          last_commit_age_days: 100
+          last_commit_age_days: 90
           dry_run: yes
           ignore_branches: test_prefix/one,test_prefix/two,test_prefix_ignored/one
