@@ -11,6 +11,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: List files
+        run: |
+          pwd
+          ls -al
       - name: GitHub Branch Cleaner
         uses: mmorenoregalado/action-branches-cleaner@v2.0.1
         with:
