@@ -15,8 +15,6 @@ jobs:
       # env: 
         
       run: |
-        chmod +x path/to/your/script.sh
-        ./path/to/your/script.sh
         #!/bin/bash
         
         set -eo pipefail
