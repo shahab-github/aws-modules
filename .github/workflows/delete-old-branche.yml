@@ -19,6 +19,7 @@ jobs:
         
         set -eo pipefail
         export REPO_TOKEN=${{ secrets.GITHUB_TOKEN }}
+        export INPUT_REPO_TOKEN=${{ secrets.GITHUB_TOKEN }}
         
         [[ -n ${INPUT_REPO_TOKEN} ]] || { echo "Please set the REPO_TOKEN input"; exit 1; }
         [[ -n ${INPUT_DATE} ]] || { echo "Please specify a suitable date input for branch filtering"; exit 1; }
