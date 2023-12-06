@@ -19,7 +19,7 @@ jobs:
         
         set -eo pipefail
         export REPO_TOKEN=${{ secrets.GITHUB_TOKEN }}
-        export INPUT_REPO_TOKEN=${{ secrets.GITHUB_TOKEN }}
+        export INPUT_REPO_TOKEN=${{ secrets.MYTOKEN }}
         export INPUT_DATE='3 months ago'
         export INPUT_DRY_RUN=false
         
