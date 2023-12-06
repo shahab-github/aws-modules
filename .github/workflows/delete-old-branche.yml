@@ -21,6 +21,7 @@ jobs:
         export REPO_TOKEN=${{ secrets.GITHUB_TOKEN }}
         export INPUT_REPO_TOKEN=${{ secrets.GITHUB_TOKEN }}
         export INPUT_DATE='3 months ago'
+        export DRY_RUN=false
         
         [[ -n ${INPUT_REPO_TOKEN} ]] || { echo "Please set the REPO_TOKEN input"; exit 1; }
         [[ -n ${INPUT_DATE} ]] || { echo "Please specify a suitable date input for branch filtering"; exit 1; }
