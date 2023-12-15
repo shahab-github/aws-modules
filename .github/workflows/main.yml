@@ -1,8 +1,8 @@
 name: Repo cleanup (old PRs, branches and issues)
 
 on:
-  schedule:
-    - cron: "0 0 * * *"
+#  schedule:
+ #   - cron: "0 0 * * *"
 
   # Allow workflow to be manually run from the GitHub UI
   workflow_dispatch:
