@@ -2,6 +2,7 @@ name: Branches Cleaner
 
 on:
   workflow_dispatch:
+# cron job it will automatically run mid night  
 #  schedule:
 #    - cron: "0 0 * * *"
 
